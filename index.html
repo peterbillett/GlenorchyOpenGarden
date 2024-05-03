@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Glenorchy Victoria Open Garden and Roadside Art in Australia" />
+        <meta name="author" content="Peter Billett" />
+        <title>Glenorchy Vic Open Garden &amp; Roadside Art</title>
+        <!-- <link rel="stylesheet" href="css/bootstrap.css">-->
+        <!-- <script src="js/jquery.slim.min.js"></script>-->
+        <!-- <script src="js/bootstrap.min.js"></script>-->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+        
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <script>
+            $(document).ready(function(){
+                //$("#myModal").modal('show');
+            });
+
+// Set the default timezone to Australia/Melbourne
+Intl.DateTimeFormat().resolvedOptions().timeZone = 'Australia/Melbourne';
+
+// Define the days of the week
+const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+// Get the current day of the week (0-6, where 0 is Sunday)
+let currentDayNum = new Date().getDay() - 1;
+if (currentDayNum < 0) {
+  currentDayNum = 6;
+}
+
+// Loop through the days of the week and output the date for each day
+for (let x = 0; x <= 6; x++) {
+  let difference;
+  if (x < currentDayNum) {
+    difference = (7 - currentDayNum) + x;
+  } else {
+    difference = x - currentDayNum;
+  }
+  $("#daysToDisplay").append(`\n<li> ${days[x]} ${new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate()}${new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 1 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 21 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 31 ? 'st' : new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 2 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 22 ? 'nd' : new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 3 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 23 ? 'rd' : 'th'}<span class="pull-right">Bookings only</span></li>`);
+}
+
+$("#daysToDisplay").append(`\n<span style="color: white;font-size: small;font-weight: normal;">Last updated ${new Date().getDate()}${new Date().getDate() === 1 || new Date().getDate() === 21 || new Date().getDate() === 31 ? 'st' : new Date().getDate() === 2 || new Date().getDate() === 22 ? 'nd' : new Date().getDate() === 3 || new Date().getDate() === 23 ? 'rd' : 'th'} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][new Date().getMonth()]} ${new Date().getFullYear()}</span>`);
+
+        </script>
+    </head>
+    <body id="page-top">
+        
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=1847765405444218&autoLogAppEvents=1" nonce="zkuFCVd7"></script>
+
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">Glenorchy Open Garden</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#contact">Visit us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#garden">Explore Our Garden</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#history">Our History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#glenorchy">About Glenorchy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="facebookPosContainter">
+                <div class="facebookPos">
+                    <div class="fb-page" data-href="https://www.facebook.com/GlenorchyVicOpenGarden/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/GlenorchyVicOpenGarden/" class="fb-xfbml-parse-ignore"><a class="facebookLink" target="_blank" href="https://www.facebook.com/GlenorchyVicOpenGarden/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                    </a></blockquote></div><br>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="masthead-subheading">Glenorchy, Victoria</div>
+                <div class="masthead-heading text-uppercase">Open Garden & Roadside Art</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#welcome">Tell Me More</a>
+            </div>
+        </header>
+        
+        
+        <section class="page-section facebookHidden">
+            <div class="container">
+                <div class="text-center facebookPosHidden">
+                    <div class="fb-page" data-href="https://www.facebook.com/GlenorchyVicOpenGarden/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/GlenorchyVicOpenGarden/" class="fb-xfbml-parse-ignore"><a class="facebookLink" target="_blank" href="https://www.facebook.com/GlenorchyVicOpenGarden/">Check out our <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>acebook page</a></blockquote></div><br>
+                </div>
+            </div>
+        </section>
+        
+        <section class="page-section" id="welcome">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">A heartfelt welcome to all</h2>
+                    <h3 class="section-subheading text-muted" style="margin-bottom: 0px;">
+                        Our garden holds stories whispered by the wind of a serene retreat where the beauty of nature and the echoes of the past intertwine harmoniously.<br>
+                        As you delve deeper into its realms, you'll witness the remarkable marriage of history and growth, where reclaimed materials find new purpose, and artistic endeavors breathe magic into every corner.<br>
+                        We invite you to discover the captivating allure of our cherished sanctuary and all that lies within this living canvas.
+                    </h3>
+                    <!-- <div class="fb-page" data-href="https://www.facebook.com/GlenorchyVicOpenGarden/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/GlenorchyVicOpenGarden/" class="fb-xfbml-parse-ignore"><a class="facebookLink" target="_blank" href="https://www.facebook.com/GlenorchyVicOpenGarden/">
+                        Check out our <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>acebook page</a></blockquote>
+                    </div> -->
+                    <h5 style="margin-top: -35px;">
+                        
+                        <div class="container demo-bg">
+                            <div class="row openingTimes">
+                                <div class="col-sm-4" style="min-width: 310px;">
+                                    <div class="business-hours">
+                                        <h2 class="title">Opening Hours</h2>
+                                        <ul class="list-unstyled opening-hours" id="daysToDisplay">
+                                            <!--li>Monday 16th<span class="pull-right">Bookings only</span></li>
+                                            <li>Tuesday 17th<span class="pull-right">Bookings only</span></li>
+                                            <li>Wednesday 18th<span class="pull-right">Bookings only</span></li>
+                                            <li>Thursday 19th<span class="pull-right">Bookings only</span></li>
+                                            <li>Friday 20th<span class="pull-right">Bookings only</span></li>
+                                            <li>Saturday 21st<span class="pull-right">Bookings only</span></li>
+                                            <li>Sunday 22nd<span class="pull-right">Bookings only</span></li>-->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8" style="align-items: center;display: flex;">
+                                    <div class="business-hours-textbox">Please call if you would like to visit. <br>
+                                    5 per adult, $2 per child.<br>
+                            Come see the beautiful wisteria flowering.<br>
+                            l can set up the urn for cuppas &amp; activities.<br>
+                            For large groups, if possible, please book a week in advance thank you 😊<br>
+                            Hope to see everyone soon!</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                       <!-- <div class="jumbotron jumbotron-fluid">
+                          <div class="container" style="margin-top: 5px;">
+                            <h1 class="display-4">SPECIAL EVENT</h1>
+                            <p class="lead">
+                            I'm donating half of the open garden entry takings from this weekend to the <a href="https://fundraise.nbcf.org.au/fundraisers/abigailwehrung" style="font-weight: bold;">
+The Big Adventure 2.0 fundraiser</a>.<br>5 riders and a fair few support crew will arrive in Glenorchy early arvo on Saturday 23rd but I'll keep you posted if different.<br>Please come and welcome them into Glenorchy Open Garden!<br>
+                            $5 entry, thank you for your support.</p>
+                          </div>
+                        </div> -->
+                    </h5>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact -->
+        <section class="page-section bg-light" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Visit Us</h2>
+                    Linda Fearon <a class="text-muted hover-effect" href="tel:614-3858-1068" style="font-weight: bold;color: #ffc800 !important;"><i class="fa-solid fa-phone"></i> 0438 581 068</a>
+                    <h3 class="section-subheading text-muted" style="margin-bottom: 0rem;">39-47 Forest Street, Glenorchy, VIC, Australia, 3385</h3>
+                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12761.459204998062!2d142.662581!3d-36.9055413!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ace273720e41c6f%3A0x8590f4da984d5a68!2sGlenorchy%20Vic%20Open%20Garden%20%26%20Roadside%20Art!5e0!3m2!1sen!2sau!4v1687422035244!5m2!1sen!2sau" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Our Garden -->
+        <section class="page-section" id="garden">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Explore Our Garden</h2>
+                    <h3 class="section-subheading text-muted">Discover an enchanting tapestry of wonders that beckon to be explored in every corner of our garden</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- garden item 1-->
+                        <div class="garden-item">
+                            <a class="garden-link" data-bs-toggle="modal" data-backdrop="false" href="#gardenModal1">
+                                <div class="garden-hover">
+                                    <div class="garden-hover-content">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="64" height="64" class="bi bi-zoom-in fa-3x" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                            <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                                            <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- <div class="bg-image hover-zoom"> -->
+                                    <img class="img-fluid hover-zoom" src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858655/GlenorchyOpenGarden/1_sj0ms3.jpg" alt="..." />
+                                <!-- </div> -->
+                            </a>
+                            <div class="garden-caption">
+                                <div class="garden-caption-heading">Garden Creations</div>
+                                <div class="garden-caption-subheading text-muted">Enchanting mushrooms and more...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- garden item 2-->
+                        <div class="garden-item">
+                            <a class="garden-link" data-bs-toggle="modal" href="#gardenModal2">
+                                <div class="garden-hover">
+                                    <div class="garden-hover-content">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="64" height="64" class="bi bi-zoom-in fa-3x" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                            <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                                            <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <img class="img-fluid hover-zoom" src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858656/GlenorchyOpenGarden/2_joc4fj.jpg" alt="..." />
+                            </a>
+                            <div class="garden-caption">
+                                <div class="garden-caption-heading">Garden Sculptures</div>
+                                <div class="garden-caption-subheading text-muted">From scraps to masterpieces</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- garden item 3-->
+                        <div class="garden-item">
+                            <a class="garden-link" data-bs-toggle="modal" href="#gardenModal3">
+                                <div class="garden-hover">
+                                    <div class="garden-hover-content">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="64" height="64" class="bi bi-zoom-in fa-3x" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                            <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                                            <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <img class="img-fluid hover-zoom" src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858657/GlenorchyOpenGarden/3_c1koyd.jpg" alt="..." />
+                            </a>
+                            <div class="garden-caption">
+                                <div class="garden-caption-heading">Flowers</div>
+                                <div class="garden-caption-subheading text-muted">A kaleidoscope of vibrant hues</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <!-- garden item 4-->
+                        <div class="garden-item">
+                            <a class="garden-link" data-bs-toggle="modal" href="#gardenModal4">
+                                <div class="garden-hover">
+                                    <div class="garden-hover-content">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="64" height="64" class="bi bi-zoom-in fa-3x" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                            <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                                            <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <img class="img-fluid hover-zoom" src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858658/GlenorchyOpenGarden/4_e0pwmi.jpg" alt="..." />
+                            </a>
+                            <div class="garden-caption">
+                                <div class="garden-caption-heading">Art</div>
+                                <div class="garden-caption-subheading text-muted">Range of local artwork</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <!-- garden item 5-->
+                        <div class="garden-item">
+                            <a class="garden-link" data-bs-toggle="modal"  href="#gardenModal5">
+                                <div class="garden-hover">
+                                    <div class="garden-hover-content">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="64" height="64" class="bi bi-zoom-in fa-3x" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                            <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                                            <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <img class="img-fluid hover-zoom" src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858659/GlenorchyOpenGarden/5_jgbigd.jpg" alt="..." />
+                            </a>
+                            <div class="garden-caption">
+                                <div class="garden-caption-heading">Flower Bouquets</div>
+                                <div class="garden-caption-subheading text-muted">Fresh blossoms to delight the senses</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- garden item 6-->
+                        <div class="garden-item">
+                            <a class="garden-link" data-bs-toggle="modal" href="#gardenModal6">
+                                <div class="garden-hover">
+                                    <div class="garden-hover-content">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="64" height="64" class="bi bi-zoom-in fa-3x" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                            <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                                            <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <img class="img-fluid hover-zoom" src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858660/GlenorchyOpenGarden/6_xt6vm1.jpg" alt="..." />
+                            </a>
+                            <div class="garden-caption">
+                                <div class="garden-caption-heading">The Garden</div>
+                                <div class="garden-caption-subheading text-muted">Nature meets design</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section class="page-section bg-light" id="history">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our History</h2>
+                    <h3 class="section-subheading text-muted">Step into the rich with history of the garden, where each corner holds stories of the vibrant tapestry of its past</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div id='timeline-1' class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2013</h4>
+                                <h4 class="subheading">From Ruins...</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">We acquired the land on the 11th of April, which came with the remnants of an old house in ruins. Over a span of more than 12 months, we dedicated our weekends to the task of transforming this land into something beautiful. Our efforts involved planting tube stock trees and utilizing cuttings from my existing garden. We also took care to preserve the yellow banksia rose and wisteria that had once adorned the dilapidated house.
+                                <br>
+                                In addition to tending to the flora, we took on the responsibility of cleaning up the area. We removed sick or dead trees, cleared away debris, and demolished the old house. Salvaging any salvageable wood, we repurposed it to build sheds, an outdoor table, and arbours. The intricate patterns on the arbours were created using the old fretwork from the veranda posts, which we had carefully saved.
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div id='timeline-2' class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2014</h4>
+                                <h4 class="subheading">...to Home</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">On September 18, 2014, the foundations for our new house were laid, reclaiming the very spot where the old house once stood. We officially settled on the property by October 17 while we resided in a caravan patiently awaiting the completion of our new abode. The construction progressed steadily, and by Christmas, we could finally begin moving in.
+                                <br>
+                                All the yellow banksia roses and wisteria sinensis in our garden were grown from cuttings and layering techniques, derived from the main plants in our existing garden. We also utilized bricks from the old chimney to create pathways, adding a touch of history to our surroundings.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id='timeline-3' class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2015-2016</h4>
+                                <h4 class="subheading">Renewed Beauty</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">In our quest to harmonize the elements of the past and the present, we embraced the reuse of aged fence posts and rails throughout the garden. Their weathered charm and enduring strength became integral components of our landscape, seamlessly blending with the natural surroundings. We also repurposed old tyres into pillars, flanking the main gates. These pillars now serve as an inviting canvas for vibrant plants to flourish, intertwining with the recycled rubber, breathing life into what was once considered waste.
+                            <br>
+                            In these initial years of our endeavor, we were fortunate to receive generous donations from kind-hearted individuals, to whom we extend our deepest gratitude. Their contributions played a vital role in our journey, providing us with invaluable items that enriched our experience and propelled our progress.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div id='timeline-4' class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2017-2019</h4>
+                                <h4 class="subheading">Breathing Life into Recycled Treasures</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">On September 16th, we started to create a mini golf course, fueled by the discovery of free online materials. This coupled with our own gravel allowed us to gather everything we needed to bring it to life.
+                            <br />
+                            This creative spirit continued to thrive in the subsequent years. In 2017 and 2018, Matthew embarked on a captivating artistic venture, giving birth to metal garden art. His artistic journey commenced with the creation of Kangaroos, with adorn Green Street, and Koalas, now nestled within the serene beauty of Forest Street. These captivating sculptures were masterfully fashioned from repurposed gas bottles and scrap metal, breathing new life into them. The collection has since flourished, expanding into a diverse array you can see throughout our garden. We take great pride in showcasing these awe-inspiring creations, which have become a cherished part of our landscape.
+                            <br />
+                            For those who share our admiration for these magnificent works of art, we offer select pieces for sale, allowing you to bring a touch of their magic into your own home. Take a piece of our creative vision with you and infuse your surroundings with the whimsy and allure that our metal garden art bestows.</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id='timeline-5' class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/5.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2020-2023</h4>
+                                <h4 class="subheading">Mushroom for Expansion</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">During the 2020 lockdown, we began paving the area beneath the majestic Kurrajong tree, creating a captivating space to appreciate its natural grandeur. Inspired by the talent of a dear friend and gifted artist, Ingrid Rudolph from Stawell, we commissioned her to adorn our 40ft shipping container along Green Street with her captivating art by depicting the old house that once stood on the very spot. Ingrid started working on it on November 20, 2020, and perfectly brought the project to completion on January 6, 2021.
+                            <br>
+                            We were finally ready to open our garden as a business, inviting others to experience everything we had cultivated. Alongside the natural beauty, I also began crafting unique creations which are available for purchase, including garden toadstools of all sizes, leaf stepping stones, and charming bird baths. You can feel the touch of magic these additions have brought to garden.</p></div>
+                        </div>
+                    </li>
+                    
+                    <li class="timeline-inverted">
+                        <div id='timeline-6' class="timeline-image">
+                            <h4><b style="vertical-align: -moz-middle-with-baseline; vertical-align: -webkit-baseline-middle;">
+                                Thank
+                                <br />
+                                you</b>
+                            </h4>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Today</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Over the years, our dedication to nurturing the garden has remained unwavering. We have continued to expand and connect various areas, weaving a harmonious tapestry that extends from the mesmerizing mural on the shipping container. More recently, we created a captivating fairy garden beneath the ancient peppercorn trees, enchanting visitors of all ages.
+                            <br>
+                            With each passing year, our garden flourishes, resonating with the spirit of transformation and the allure of creativity. It stands as a testament to the beauty that can be cultivated even in the face of challenges, reminding us of the joy found in nature's embrace.
+                            <br>
+                            We look forward to you visiting and enjoying all it has to offer!</p></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="page-section" id="glenorchy">
+            
+            <div class="container">
+                
+                <div class="text-center zoom">
+                    
+                    <div class="underlay-img-parent ">
+                        <img src="assets/img/about/g1.jpg" class="d-block mx-auto underlay-img" alt="...">
+                    </div>
+                    <h2 class="section-heading text-uppercase black-shadow-small">About Glenorchy</h2>
+                    <h3 class="section-subheading text-over-img white-shadow">
+                        Glenorchy, a village with a rich history, derives its name from either the surveyor or the proprietor of the Four Posts Inn, who likely drew inspiration from Glenorchy in Argyllshire, Scotland. The village witnessed significant milestones, including the opening of its first school in 1858, which was later replaced by the present-day school building in 1875.
+                        <br>
+                        Notably, Glenorchy made an appearance in Marcus Clarke's satirical Bullocktown Sketches published in the Australasian newspaper. Clarke, who worked on Swintons pastoral station between 1865 and 1867, likely found amusement in the locals' penchant for steady drinking, perhaps influenced by his observations of the flat Wimmera pastoral country.
+                        <br>
+                        Glenorchy's fortunes shifted towards wheat production, especially with the advent of the railway line in 1878, connecting farm selections to larger markets. Around the same time, a flour mill was established, complementing the existing mills in Stawell.
+                        <br>
+                        While Glenorchy once flourished with fruit growing and viticulture, these industries have diminished over time, and the village now serves as a grain receival point for the district. The township is home to a Uniting church, originally Presbyterian and built in 1863, a public hall, a golf course, and a reticulated water system drawing from the Wimmera River. Unfortunately, the Catholic church is no longer in use, and the school closed its doors in 2010.
+                        <br>
+                        In recent years, Glenorchy has faced challenges with rising floodwaters from the Wimmera River, experiencing significant flooding in September 2010, January 2011, and October 2022, demonstrating the resilience and perseverance of the community in the face of nature's forces.
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="footer py-4 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Glenorchy Vic Open Garden & Roadside Art © 2022-
+<script>
+const currentYear = new Date();
+document.getElementById("demo").innerHTML = currentYear.getFullYear();
+</script>
+</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" target="_blank" href="https://www.facebook.com/GlenorchyVicOpenGarden/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-instagram"></i></a> -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- garden Modals-->
+        <!-- garden item 1 modal popup-->
+        <div class="garden-modal modal fade" id="gardenModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Image 1 details-->
+                                    <h2 class="text-uppercase">Garden Creations</h2>
+                                    <p class="item-intro text-muted">In the heart of our garden, a realm of creativity and imagination unfolds, where concrete becomes a medium of enchantment to create delightful mushrooms, leaf stepping stones, and exquisite bird baths, all sculpted with love and care.</p>
+
+                                    <div class="">
+                                        <div id="carousel1Controls" class="carousel slide carousel-fade w-100" data-bs-ride="carousel">
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858655/GlenorchyOpenGarden/1_sj0ms3.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858653/GlenorchyOpenGarden/a_dlcnp8.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858653/GlenorchyOpenGarden/b_kb8oqr.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1Controls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1Controls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <br>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- garden item 2 modal popup-->
+        <div class="garden-modal modal fade" id="gardenModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Image 2 details-->
+                                    <h2 class="text-uppercase">Garden Sculptures</h2>
+                                    <p class="item-intro text-muted">Sculpted from the remnants of discarded metal, Matthew handcrafts them with a breath of new life, transforming them into magnificent creations that dot the landscape with charm and character. Among these metal marvels, you'll encounter koalas, kangaroos and  more, each forged from the hodgepodge of metal fragments.</p>
+
+                                    <div class="">
+                                        <div id="carousel2Controls" class="carousel slide carousel-fade w-100" data-bs-ride="carousel">
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858656/GlenorchyOpenGarden/2_joc4fj.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858653/GlenorchyOpenGarden/a_pyzsmp.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858654/GlenorchyOpenGarden/b_xqijqy.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel2Controls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel2Controls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <br>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- garden item 3 modal popup-->
+        <div class="garden-modal modal fade" id="gardenModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Image 3 details-->
+                                    <h2 class="text-uppercase">Flowers</h2>
+                                    <p class="item-intro text-muted">In our garden, nature unfolds its vibrant palette, painting the landscape with a breathtaking tapestry of beautiful flowers. Each blossom, a testament to nature's artistry, radiates with its unique hues, fragrances, and delicate intricacies.</p>
+
+                                    <div class="">
+                                        <div id="carousel3Controls" class="carousel slide carousel-fade w-100" data-bs-ride="carousel">
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858657/GlenorchyOpenGarden/3_c1koyd.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858655/GlenorchyOpenGarden/a_b0xv1m.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858657/GlenorchyOpenGarden/b_ovjlh6.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel3Controls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel3Controls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <br>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- garden item 4 modal popup-->
+        <div class="garden-modal modal fade" id="gardenModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Image 4 details-->
+                                    <h2 class="text-uppercase">Art</h2>
+                                    <p class="item-intro text-muted">Adorning our walls, you'll discover a captivating collection of paintings available for purchase that celebrate landscapes, flowers, and wildlife, each brushstroke capturing the essence of our natural world.</p>
+
+                                    <div class="">
+                                        <div id="carousel4Controls" class="carousel slide carousel-fade w-100" data-bs-ride="carousel">
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858658/GlenorchyOpenGarden/4_e0pwmi.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858656/GlenorchyOpenGarden/a_vossdk.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858657/GlenorchyOpenGarden/b_mcnu9h.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel4Controls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel4Controls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <br>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- garden item 5 modal popup-->
+        <div class="garden-modal modal fade" id="gardenModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Image 5 details-->
+                                    <h2 class="text-uppercase">Flower Bouquets</h2>
+                                    <p class="item-intro text-muted">Beyond the visual feast of colorful flowers, we offer a unique opportunity to order custom-made flower bouquets, crafted with love and care from the very blooms that grace our gardens.</p>
+
+                                    <div class="">
+                                        <div id="carousel5Controls" class="carousel slide carousel-fade w-100" data-bs-ride="carousel">
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858659/GlenorchyOpenGarden/5_jgbigd.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858660/GlenorchyOpenGarden/a_yz51jj.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858658/GlenorchyOpenGarden/b_ealtxg.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel5Controls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel5Controls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <br>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- garden item 6 modal popup-->
+        <div class="garden-modal modal fade" id="gardenModal6" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Image 6 details-->
+                                    <h2 class="text-uppercase">The Garden</h2>
+                                    <p class="item-intro text-muted">Nestled amidst the lush landscape, our garden is a testament to the harmonious dance between human creativity and the bountiful gifts of the natural world. Whether you seek inspiration, serenity, or simply a moment of respite, our garden welcomes you with open arms, ready to unveil its secrets and awaken your senses to the wonders that lie within.</p>
+
+                                    <div class="">
+                                        <div id="carousel6Controls" class="carousel slide carousel-fade w-100" data-bs-ride="carousel">
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858660/GlenorchyOpenGarden/6_xt6vm1.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858659/GlenorchyOpenGarden/a_yd6v6f.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img src="https://res.cloudinary.com/dk6s0hs5v/image/upload/v1687858659/GlenorchyOpenGarden/b_saykdj.jpg" class="d-block m-auto" alt="...">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel6Controls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel6Controls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <br>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/scripts.js"></script>
+
+        <div id="myModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog closed">
+                <div class="modal-content closed-bg" type="button" data-dismiss="modal" aria-label="Close" onclick="$('#myModal').modal('hide');">
+                    <div class="modal-header closed-header">
+                        <div class="closed-subheading">Open by appointment only</div>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <p>Open 10am till 6pm please book if you want to stay later for lights, this Friday/Saturday.<br>
+                            I'm donating half of the open garden entry takings from this weekend to the 2.0 Fundraisr. 5 riders and a fair few support crew will arrive in Glenorchy early arvo on Saturday 23rd but I'll keep you posted if different. Please come and welcome them into Glenorchy open garden<br>
+                            39-47 Forest st Glenorchy Vic<br>
+                            $5 entry, thank you for your support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
