@@ -1,38 +1,28 @@
-/*!
-* Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
-
 $(document).ready(function() {
-// Set the default timezone to Australia/Melbourne
-Intl.DateTimeFormat().resolvedOptions().timeZone = 'Australia/Melbourne';
-
-// Define the days of the week
-const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
-// Get the current day of the week (0-6, where 0 is Sunday)
-let currentDayNum = new Date().getDay() - 1;
-if (currentDayNum < 0) {
-  currentDayNum = 6;
-}
-
-// Loop through the days of the week and output the date for each day
-for (let x = 0; x <= 6; x++) {
-  let difference;
-  if (x < currentDayNum) {
-    difference = (7 - currentDayNum) + x;
-  } else {
-    difference = x - currentDayNum;
-  }
-  $("#daysToDisplay").append(`\n<li> ${days[x]} ${new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate()}${new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 1 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 21 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 31 ? 'st' : new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 2 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 22 ? 'nd' : new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 3 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 23 ? 'rd' : 'th'}<span class="pull-right">Bookings only</span></li>`);
-}
-
-$("#daysToDisplay").append(`\n<span style="color: white;font-size: small;font-weight: normal;">Last updated ${new Date().getDate()}${new Date().getDate() === 1 || new Date().getDate() === 21 || new Date().getDate() === 31 ? 'st' : new Date().getDate() === 2 || new Date().getDate() === 22 ? 'nd' : new Date().getDate() === 3 || new Date().getDate() === 23 ? 'rd' : 'th'} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][new Date().getMonth()]} ${new Date().getFullYear()}</span>`);
-
+    // Set the default timezone to Australia/Melbourne
+    Intl.DateTimeFormat().resolvedOptions().timeZone = 'Australia/Melbourne';
+    
+    // Define the days of the week
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    
+    // Get the current day of the week (0-6, where 0 is Sunday)
+    let currentDayNum = new Date().getDay() - 1;
+    if (currentDayNum < 0) {
+      currentDayNum = 6;
+    }
+    
+    // Loop through the days of the week and output the date for each day
+    for (let x = 0; x <= 6; x++) {
+      let difference;
+      if (x < currentDayNum) {
+        difference = (7 - currentDayNum) + x;
+      } else {
+        difference = x - currentDayNum;
+      }
+      $("#daysToDisplay").append(`\n<li> ${days[x]} ${new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate()}${new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 1 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 21 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 31 ? 'st' : new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 2 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 22 ? 'nd' : new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 3 || new Date(new Date().getTime() + (difference * 24 * 60 * 60 * 1000)).getDate() === 23 ? 'rd' : 'th'}<span class="pull-right">Bookings only</span></li>`);
+    }
+    
+    $("#daysToDisplay").append(`\n<span style="color: white;font-size: small;font-weight: normal;">Last updated ${new Date().getDate()}${new Date().getDate() === 1 || new Date().getDate() === 21 || new Date().getDate() === 31 ? 'st' : new Date().getDate() === 2 || new Date().getDate() === 22 ? 'nd' : new Date().getDate() === 3 || new Date().getDate() === 23 ? 'rd' : 'th'} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][new Date().getMonth()]} ${new Date().getFullYear()}</span>`);
 
     var dayNum = new Date().getDay() - 1;
     if (dayNum < 0) {
