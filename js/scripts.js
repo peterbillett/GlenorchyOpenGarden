@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     // Set the default timezone to Australia/Melbourne
     Intl.DateTimeFormat().resolvedOptions().timeZone = 'Australia/Melbourne';
     
@@ -29,7 +29,7 @@ $(document).ready(function() {
         dayNum = 6;
     }
     $('.opening-hours li').eq(dayNum).addClass('today');
-});
+});*/
 
 window.addEventListener('DOMContentLoaded', event => {
 
